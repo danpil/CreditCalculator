@@ -1,0 +1,18 @@
+%form{:action => "/result", :method => "post"}
+  %div{:class => "form-group"}
+    %label{:for => "inputSum"} Сума кредиту:
+    %input{:type => "input", :class => "form-control", :id => "inputSum", :name => "sum"}
+  %div{:class => "form-group"}
+    %label{:for => "inputProcent"} Процентна ставка (%):
+    %input{:type => "input", :class => "form-control", :id => "inputProcent", :name => "procent"}
+  %div{:class => "form-group"}
+    %label{:for => "inputTerm"} Термін кредиту (в місяцях):
+    %input{:type => "input", :class => "form-control", :id => "inputTerm", :name => "term"}
+  %div{:class => "form-group"}
+    %div{:class => "radio"}
+      %label
+      %input{:type => "radio", :name => "payOff", :id => "payOffUsual", :value => "Usual", :checked => true} Стандартний
+    %div{:class => "radio"}
+      %label
+      %input{:type => "radio", :name => "payOff", :id => "payOffEqual", :value => "Equal"} Ануїтетний (рівними частинами)
+  %button{:type => "submit", :class => "btn btn-default"} Побудувати

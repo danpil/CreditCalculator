@@ -1,0 +1,25 @@
+%p Процентна ставка: #{params.procent}%
+%p Сума кредиту: #{params.sum}
+
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th номер місяця
+      %th погашення кредиту
+      %th погашення %
+      %th загальний внесок
+      %th залишок кредиту
+  %tbody
+    - (1..params.term).each do |i|
+      %tr
+        %td= i
+        %td= params.debtRepayment.round 2
+        %td= params.accruedInterest.round 2
+        %td= (params.debtRepayment + params.accruedInterest(FALSE)).round 2
+        %td= params.creditBalance.round 2
+    %tr
+      %td Итого
+      %td= params.sum
+      %td= params.sum_procent.round 2
+      %td= (params.sum + params.sum_procent).round 2
+      %td
